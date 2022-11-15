@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- TODO: Add necessary string values -->
+    <string name="follow">Follow Election</string>
+    <string name="unfollow">Unfollow Election</string>
+    <string name="app_name">Political Preparedness</string>
+    <string name="upcoming_elections_button_text">Upcoming Elections</string>
+    <string name="representatives">Representatives</string>
+    <string name="elections">Elections</string>
+    <string name="election_detail">Election Details</string>
+    <string name="representatives_button_text">Find My Representatives</string>
+    <string name="upcoming_elections_text">Upcoming Elections</string>
+    <string name="saved_elections_text">Saved Elections</string>
+</resources>

@@ -1,0 +1,12 @@
+package com.example.android.politicalpreparedness
+
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
+
+abstract class ViewModelBase (app: Application) : AndroidViewModel(app) {
+
+    val showSnackBar = MutableLiveData<String>()
+    val showSnackBarInt = MutableLiveData<Int>()
+
+}
