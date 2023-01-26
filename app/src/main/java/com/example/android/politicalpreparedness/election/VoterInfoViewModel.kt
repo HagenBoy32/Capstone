@@ -9,20 +9,16 @@ import kotlinx.coroutines.launch
 
 class VoterInfoViewModel(application: Application) : AndroidViewModel(application) {
 
-    //TODO: Add live data to hold voter info
     private val database = ElectionDatabase.getInstance(application)
     private val electionsRepository = ElectionsRepository(database)
 
     val voterInfo = electionsRepository.voterInfo
 
-    var Url = MutableLiveData<String>()
-
     private val electionId = MutableLiveData<Int>()
 
-
-     val election = electionId.switchMap { id ->
-          liveData {
-              emitSource(electionsRepository.getElection(id))
+    val election = electionId.switchMap { id ->
+        liveData {
+            emitSource(electionsRepository.getElection(id))
         }
     }
 
@@ -30,12 +26,7 @@ class VoterInfoViewModel(application: Application) : AndroidViewModel(applicatio
         electionId.value = id
     }
 
-    /*
-     * Hint: The saved state can be accomplished in multiple ways. It is directly related to how elections are saved/removed from the database.
-     */
-
-
-    fun SaveElection(election: Election) {
+    fun SaveElectionBtn(election: Election) {
         election.isSaved = !election.isSaved
         viewModelScope.launch {
             electionsRepository.insertElection(election)
@@ -48,10 +39,11 @@ class VoterInfoViewModel(application: Application) : AndroidViewModel(applicatio
         }
 
 
+    var Url = MutableLiveData<String>()
+
     fun intentUrl(url: String) {
         Url.value = url
     }
-
 
 
 }

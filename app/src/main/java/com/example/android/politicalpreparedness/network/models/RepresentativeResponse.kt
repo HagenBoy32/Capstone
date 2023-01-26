@@ -1,8 +1,10 @@
-package com.example.android.politicalpreparedness.network.models
+package com.example.android.politicalpreparedness.models
 
-import com.squareup.moshi.Json
+import com.example.android.politicalpreparedness.network.models.Official
+import com.example.android.politicalpreparedness.representative.model.Office
 
-data class RepresentativeResponse(
-        val offices: List<Office>,
-        val officials: List<Official>
-)
+
+//data class RepresentativeResponse(
+//        val offices: List<Office>,
+//        val officials: List<Official>
+//)

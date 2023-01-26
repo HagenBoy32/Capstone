@@ -5,10 +5,8 @@ import androidx.room.*
 import com.squareup.moshi.*
 import kotlinx.android.parcel.Parcelize
 import java.util.*
-
-@Entity(tableName = "election_table")
-
 @Parcelize
+@Entity(tableName = "election_table")
 data class Election(
         @PrimaryKey val id: Int,
         @ColumnInfo(name = "name")val name: String,

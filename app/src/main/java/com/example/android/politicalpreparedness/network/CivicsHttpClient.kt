@@ -7,7 +7,7 @@ class CivicsHttpClient: OkHttpClient() {
 
     companion object {
 
-        const val API_KEY = "AIzaSyAoR0CB6woCAG1Pr2RGav2cIWrG0jNtKys"
+        const val API_KEY = "AIzaSyCGUtwbMI-h_APx_xl8YA_oiDE4eJORq_c"
 
         val interceptor = HttpLoggingInterceptor()
             .apply {

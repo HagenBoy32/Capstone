@@ -1,21 +1,36 @@
 package com.example.android.politicalpreparedness.representative.adapter
 
+
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.Spinner
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.example.android.politicalpreparedness.R
 
-@BindingAdapter("profileImage")
-fun fetchImage(view: ImageView, src: String?) {
-    src?.let {
-        val uri = src.toUri().buildUpon().scheme("https").build()
-        //TODO: Add Glide call to load image and circle crop - user ic_profile as a placeholder and for errors.
+
+@BindingAdapter("imageUrl")
+fun bindImageUrl(imgView: ImageView, imgUrl: String?) {
+    imgUrl?.let {
+        val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
+        Glide.with(imgView.context)
+            .load(imgUri)
+            .apply(
+                RequestOptions()
+                    .placeholder(R.drawable.loading_animation)
+                    .error(R.drawable.ic_broken_image))
+            .circleCrop()
+            .into(imgView)
     }
 }
 
+
+
 @BindingAdapter("stateValue")
 fun Spinner.setNewValue(value: String?) {
+
     val adapter = toTypedAdapter<String>(this.adapter as ArrayAdapter<*>)
     val position = when (adapter.getItem(0)) {
         is String -> adapter.getPosition(value)

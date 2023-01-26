@@ -7,8 +7,20 @@
     <string name="upcoming_elections_button_text">Upcoming Elections</string>
     <string name="representatives">Representatives</string>
     <string name="elections">Elections</string>
+    <string name="search">search</string>
     <string name="election_detail">Election Details</string>
+    <string name="election_info_text">Election Information: </string>
     <string name="representatives_button_text">Find My Representatives</string>
+    <string name="ballot_information_text"><u>Click here for ballot information</u></string>
     <string name="upcoming_elections_text">Upcoming Elections</string>
     <string name="saved_elections_text">Saved Elections</string>
+    <string name="use_my_location">Use My Location</string>
+    <string name="follow_election">Follow Election</string>
+    <string name="unfollow_election_text">Unfollow Election</string>
+    <string name="voting_location_text"><u>Click here for voting location</u></string>
+    <string name="no_network_or_address_not_found_msg">"No network or address not found!"</string>
+    <!-- snack bar messages -->
+    <string name="no_location_permission_msg">"Location permission is required!"</string>
+    <string name="fail_no_network_msg">"Failed connecting to network!"</string>
+    <string name="location_required_error_msg">Location service must be enabled!</string>
 </resources>

@@ -28,8 +28,6 @@ class VoterInfoFragment : Fragment() {
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-
-        //Add binding values
         val binding: FragmentVoterInfoBinding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_voter_info,
@@ -46,7 +44,7 @@ class VoterInfoFragment : Fragment() {
         if (election.division.state.isEmpty()) {
             viewModel.getVoterInfo(args.argElection.id, args.argElection.division.country)
         } else {
-            viewModel.getVoterInfo(args.argElection.id, "${args.argElection.division.country} - ${args.argElection.division.state}")
+          viewModel.getVoterInfo(args.argElection.id, "${args.argElection.division.country} - ${args.argElection.division.state}")
         }
 
 
@@ -55,12 +53,9 @@ class VoterInfoFragment : Fragment() {
             startActivity(intent)
         })
 
-
-
         return binding.root
 
     }
 
-    //TODO: Create method to load URL intents
 
 }

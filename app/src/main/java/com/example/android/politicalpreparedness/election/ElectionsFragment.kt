@@ -1,7 +1,6 @@
 package com.example.android.politicalpreparedness.election
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,13 +17,8 @@ import com.example.android.politicalpreparedness.election.adapter.ElectionListen
 
 class ElectionsFragment: Fragment() {
 
-    //TODO: Add ViewModel values and create ViewModel
-    //TODO: Add binding values
-    //TODO: Link elections to voter info
-    //TODO: Initiate recycler adapters
-    //TODO: Populate recycler adapters
 
-    //Declare ViewModel
+
     private val viewModel: ElectionsViewModel by lazy {
         val application = requireNotNull(this.activity).application
         val viewModelFactory = ElectionsViewModelFactory(application)
@@ -32,35 +26,31 @@ class ElectionsFragment: Fragment() {
             .get(ElectionsViewModel::class.java)
     }
 
-    //Initiate recycler adapters
     private lateinit var upcomingElectionListAdapter: ElectionListAdapter
     private lateinit var savedElectionListAdapter: ElectionListAdapter
-
-
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        Log.d("<<ElectionsFrag>>", "1. In onCreateView:fragment_election ")
 
 
-       // Add binding
         val binding: FragmentElectionBinding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_election,
             container,
             false)
 
-        binding.lifecycleOwner = viewLifecycleOwner
-        binding.viewModel = viewModel
 
-        //Populate Recycle Adapters
+        binding.lifecycleOwner = viewLifecycleOwner
+
+        binding.viewModel = viewModel
 
         upcomingElectionListAdapter = ElectionListAdapter(ElectionListener {
             findNavController().navigate(ElectionsFragmentDirections.actionElectionsFragmentToVoterInfoFragment(it)
             )
         })
+
 
         binding.upcomingElectionsRecyclerView.adapter = upcomingElectionListAdapter
 
@@ -88,6 +78,5 @@ class ElectionsFragment: Fragment() {
 
     }
 
-    //TODO: Refresh adapters when fragment loads
 
 }

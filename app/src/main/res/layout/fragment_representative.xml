@@ -16,8 +16,9 @@
             type="com.example.android.politicalpreparedness.network.models.Address" />
     </data>
 
-    <!-- TODO: Add motion scene to hide form on vertical scroll. -->
+    <!-- Done: Add motion scene to hide form on vertical scroll. -->
     <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/motion_layout"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:padding="16dp"
@@ -28,39 +29,46 @@
             android:id="@+id/search_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="search Representative"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- TODO: Add data binding value -->
+        <!-- DONE: Add data binding value -->
         <!-- TODO: Add visual styling and content -->
         <EditText
             android:id="@+id/address_line_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints=""
+            android:hint="address line 1"
             android:inputType="textPostalAddress"
+            android:text="@={viewModel.address.line1}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/search_title" />
 
-        <!-- TODO: Add data binding value -->
+        <!-- DONE: Add data binding value -->
         <!-- TODO: Add visual styling and content -->
         <EditText
             android:id="@+id/address_line_2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:autofillHints=""
+            android:hint="address line 2"
             android:inputType="textPostalAddress"
+            android:text="@={viewModel.address.line2}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/address_line_1" />
 
-        <!-- TODO: Add data binding value -->
+        <!-- DONE: Add data binding value -->
         <!-- TODO: Add visual styling and content -->
         <EditText
             android:id="@+id/city"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:autofillHints=""
+            android:hint="City"
             android:inputType="textPostalAddress"
+            android:text="@={viewModel.address.city}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/state"
             app:layout_constraintTop_toBottomOf="@id/address_line_2" />
@@ -72,22 +80,26 @@
             android:id="@+id/state"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:autofillHints=""
+            android:autofillHints="State"
             android:inputType="textPostalAddress"
+            android:entries="@{viewModel.states}"
+            android:selectedItemPosition="@={viewModel.selectedStateIndex}"
             app:layout_constraintStart_toEndOf="@id/city"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/city"
             app:layout_constraintBottom_toBottomOf="@id/city"/>
 
-        <!-- TODO: Add data binding value -->
+        <!-- DONE: Add data binding value -->
         <!-- TODO: Add visual styling and content -->
         <EditText
             android:id="@+id/zip"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:autofillHints=""
+            android:hint="Zip"
             android:inputType="number"
             android:maxLength="5"
+            android:text="@={viewModel.address.zip}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="@id/city"
             app:layout_constraintTop_toBottomOf="@id/city" />
@@ -97,6 +109,8 @@
             android:id="@+id/button_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:text="@string/search"
             app:layout_constraintTop_toBottomOf="@id/zip" />
 
         <!-- TODO: Add visual styling and content -->
@@ -104,6 +118,8 @@
             android:id="@+id/button_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:text="@string/use_my_location"
             app:layout_constraintTop_toBottomOf="@id/button_search" />
 
         <!-- TODO: Add visual styling and content -->

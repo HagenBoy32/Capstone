@@ -39,7 +39,5 @@ abstract class ElectionDatabase: RoomDatabase() {
 
     }
 
-   // suspend fun insertAll(elections: List<Election>) = electionDao.insertAll(elections)
-  //  fun getAll() = electionDao.getAll()
 
 }
